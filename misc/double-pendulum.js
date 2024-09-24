@@ -1,8 +1,8 @@
 let r1 = 200;
 let r2 = 200;
-let m1 = 40;
-let m2 = 20;
-let a1 = 2;
+let m1 = 500;
+let m2 = 100;
+let a1 = 0;
 let a1_v = 0;
 let a2 = 0;
 let a2_v = 0;
@@ -13,6 +13,7 @@ let y2 = 0;
 let g = 1;
 let origin_x = 400;
 let origin_y = 400;
+let hue = 0;
 
 let pg;
 
@@ -21,6 +22,12 @@ function setup() {
   h = 800;
   createCanvas(w, h);
   pg = createGraphics(w,h);
+  pg.colorMode(HSB);
+
+  a1 = map(random(), 0,1, -2*PI, 2*PI);
+  a2 = map(random(), 0,1, -2*PI, 2*PI);
+  m1 = map(random(), 0,1, 10, 1000);
+  m2 = map(random(), 0,1, 10, 1000);
 }
 
 function update_balls() {
@@ -55,7 +62,7 @@ function update_angles() {
 }
 
 function draw() {
-  background(225);
+  background(255);
 
   let line_start_x = x2;
   let line_start_y = y2;
@@ -67,10 +74,12 @@ function draw() {
   let line_end_y = y2;
 
   if(frameCount > 1) {
-    pg.stroke(0);
+    pg.background(255,0.001);
+    pg.stroke(hue,255,255);
     pg.strokeWeight(2);
     pg.line(line_start_x, line_start_y, line_end_x, line_end_y);
     image(pg, 0, 0);
+    hue = (hue+1) % 360;
   }
 
   stroke(0);
@@ -79,10 +88,10 @@ function draw() {
   //draw ball 1
   line(origin_x,origin_y,x1,y1);
   fill(0);
-  circle(x1, y1, m1);
+  circle(x1, y1, sqrt(m1));
 
   //draw ball 2
   line(x1,y1,x2,y2);
   fill(0);
-  circle(x2, y2, m2);
+  circle(x2, y2, sqrt(m2));
 }
