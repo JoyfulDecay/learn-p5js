@@ -1,6 +1,9 @@
 # Intro to Programming with P5JS
 
-This document is intended to be used by hosts leading introductory coding sessions.  The goal is to get the participants to start coding simple P5JS sketches as soon as possible.  The host should use the example sketches to demonstrate how language features work.
+This document is intended to be used by hosts leading introductory coding sessions.  The goal is to get the participants to start coding simple P5JS sketches as soon as possible.  The host should use the example sketches to demonstrate how language features work.  
+
+It should be stressed that people will not understand everything the first time they encounter it.  The key is to remain patient, practice with simple projects, and eventually through repetition things will become clear.  Don't be afraid to experiment or ask for help in the discord.
+
 
 ## The P5JS Web Editor
 
@@ -18,6 +21,7 @@ By default the editor has two functions defined.
 > A function is a block of code that performs a specific task.  Functions can be referenced from other parts of the code.  There are 'built-in' functions such as `setup` and `draw` but we can also define our own.
 
 For now we will deal only with the `setup` and `draw` functions.
+
 
 ### Drawing a Circle
 We can create some custom behaviour by adding code inside the block surrounded by curly brackets:
@@ -42,3 +46,18 @@ Here we can see that the function accepts 3 parameters: `x`, `y` and `d`
 > Parameters are used to provide data that functions can use to perform their task.  Parameters appear between the parentheses ()s in a set order as defined by the function.  For all P5JS built in functions the list of expected parameters can be found in the docs.
 
 In what ways does changing the values of the `circle` function's parameters affect the circle drawn on screen?
+
+
+## Dealing with Errors
+
+If there is just a single error in the code you write the system will be unable to proceed.
+
+P5JS will try and find the error and give you its best guess in the console window at the bottom.  Sometimes the error messages can be hard to understand but they'll always include a line number, which can be a good starting point for finding the problem.
+
+Some common errors:
+- Misspelling function names.
+- Wrong number of parameters to a function.
+- Missing a comma between parameters.
+- Failing to open or close the parentheses for a function.
+
+With experience you'll learn to understand the meaning of the console error and know how to fix the code.  Chances are you'll continue to make errors as long as you write code so you'll get plenty of practice at fixing them.
