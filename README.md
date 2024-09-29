@@ -26,16 +26,7 @@ For now we will deal only with the `setup` and `draw` functions.
 ### Drawing a Circle
 We can create some custom behaviour by adding code inside the block surrounded by curly brackets:
 
-```
-function setup() {
-  createCanvas(400, 400);
-}
-
-function draw() {
-  background(220);
-  circle(200,200,100);
-}
-```
+https://github.com/JoyfulDecay/learn-p5js/blob/9e41d979a9d9985cd54f3ad347852bd77d8a959d/sketches/circle.js#L1-L8
 
 The `circle` function is another built in function.  It causes P5JS to draw a circle.  The definition of the function and help using it can be found in the *P5JS Docs*:
 
