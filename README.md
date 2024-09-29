@@ -61,3 +61,13 @@ Some common errors:
 - Failing to open or close the parentheses for a function.
 
 With experience you'll learn to understand the meaning of the console error and know how to fix the code.  Chances are you'll continue to make errors as long as you write code so you'll get plenty of practice at fixing them.
+
+## Other Drawing Functions
+
+P5JS has a small collection of shapes that it can draw.  The definitions of the functions can be found in the reference:
+
+https://p5js.org/reference/#Shape
+
+Lets examine a simple drawing that uses some different shapes that P5JS can draw:
+
+https://github.com/JoyfulDecay/learn-p5js/blob/d88592118aa961d56e4f8f6b89506980795a2fe8/sketches/simple-drawing.js#L1-L19
