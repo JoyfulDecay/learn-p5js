@@ -100,6 +100,7 @@ Adding an `if` statement allows us to control when the pen draws.
 
 ## Rainbow Pencil
 
+https://github.com/JoyfulDecay/learn-p5js/blob/39256b7a696333d09d56e7dee37ab5805d382f71/sketches/rainbow_pencil.js#L1-L24
 
 ## Random Spots on the Canvas
 
