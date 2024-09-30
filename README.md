@@ -53,6 +53,7 @@ Some common errors:
 
 With experience you'll learn to understand the meaning of the console error and know how to fix the code.  Chances are you'll continue to make errors as long as you write code so you'll get plenty of practice at fixing them.
 
+
 ## Other Drawing Functions
 
 P5JS has a small collection of shapes that it can draw.  The definitions of the functions can be found in the reference:
@@ -63,6 +64,7 @@ Lets examine a simple drawing that uses some different shapes that P5JS can draw
 
 https://github.com/JoyfulDecay/learn-p5js/blob/d88592118aa961d56e4f8f6b89506980795a2fe8/sketches/simple-drawing.js#L1-L19
 
+
 ## Drawing with Color
 
 Drawing with color is done by setting the stroke or fill before calling the shape functions:
@@ -70,6 +72,19 @@ Drawing with color is done by setting the stroke or fill before calling the shap
 https://github.com/JoyfulDecay/learn-p5js/blob/3dc90409d9f7787c0526f292a9c6acf4a069a0f9/sketches/color.js#L1-L32
 
 **Note:** Now is a good time to get participants to create their own sketches using shape and colors.
+
+
+## Reading Mouse Position
+
+P5JS exposes the current state of the mouse with a number of variables and functions:  https://p5js.org/reference/#IO
+
+In this scene we read the global variables `mouseX` and `mouseY` and store the values in our own variables.
+
+> Variables allow us to store and manipulate data and reference the same value in multiple places in the code.
+
+Here we define the variables using the `let` keyword.  The 'scope' of the variables is limited to the `draw` function.  Trying to use the variables outside there will cause an error, and the value of the variables will be lost each frame.
+
+https://github.com/JoyfulDecay/learn-p5js/blob/7b6e439f798f074624ac856049f5e9a3db6e3691/sketches/mouse_move.js#L1-L12
 
 
 # External Resources
