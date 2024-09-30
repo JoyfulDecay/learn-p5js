@@ -87,7 +87,7 @@ Here we define the variables using the `let` keyword.  The 'scope' of the variab
 https://github.com/JoyfulDecay/learn-p5js/blob/7b6e439f798f074624ac856049f5e9a3db6e3691/sketches/mouse_move.js#L1-L12
 
 
-# Drawing with the Mouse
+## Drawing with the Mouse
 
 By moving the `background` call to the `setup` function we can allow our marks to be permanent.
 
@@ -97,6 +97,8 @@ Adding an `if` statement allows us to control when the pen draws.
 
 > Conditional statements control the flow of execution within the code.  They define blocks of code that are only executed if a condition is satisfied.
 
+
+## Random Spots on the Canvas
 
 # External Resources
 
