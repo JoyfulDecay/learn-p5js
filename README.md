@@ -74,4 +74,4 @@ https://github.com/JoyfulDecay/learn-p5js/blob/3dc90409d9f7787c0526f292a9c6acf4a
 
 # External Resources
 
- - [https://www.youtube.com/watch?v=HerCR8bw_GE&list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA](Coding Train 'Code!' YouTube playlist)
+ - [Coding Train 'Code!' YouTube playlist](https://www.youtube.com/watch?v=HerCR8bw_GE&list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA)
