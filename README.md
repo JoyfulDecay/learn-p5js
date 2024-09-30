@@ -98,6 +98,9 @@ Adding an `if` statement allows us to control when the pen draws.
 > Conditional statements control the flow of execution within the code.  They define blocks of code that are only executed if a condition is satisfied.
 
 
+## Rainbow Pencil
+
+
 ## Random Spots on the Canvas
 
 # External Resources
