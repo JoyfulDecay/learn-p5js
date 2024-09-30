@@ -62,3 +62,9 @@ https://p5js.org/reference/#Shape
 Lets examine a simple drawing that uses some different shapes that P5JS can draw:
 
 https://github.com/JoyfulDecay/learn-p5js/blob/d88592118aa961d56e4f8f6b89506980795a2fe8/sketches/simple-drawing.js#L1-L19
+
+## Drawing with Color
+
+Drawing with color is done by setting the stroke or fill before calling the shape functions:
+
+https://github.com/JoyfulDecay/learn-p5js/blob/3dc90409d9f7787c0526f292a9c6acf4a069a0f9/sketches/color.js#L1-L32
