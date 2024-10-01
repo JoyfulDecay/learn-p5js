@@ -27,7 +27,7 @@ For now we will deal only with the `setup` and `draw` functions.
 ### Drawing a Circle
 We can create some custom behaviour by adding code inside the block surrounded by curly brackets:
 
-https://github.com/JoyfulDecay/learn-p5js/blob/9e41d979a9d9985cd54f3ad347852bd77d8a959d/sketches/circle.js#L1-L8
+https://github.com/JoyfulDecay/learn-p5js/blob/63b5d8a47d222322fee79e1f280b4bea585721d4/sketches/intro/circle.js#L1-L8
 
 The `circle` function is another built in function.  It causes P5JS to draw a circle.  The definition of the function and help using it can be found in the *P5JS Docs*:
 
@@ -64,14 +64,14 @@ https://p5js.org/reference/#Shape
 
 Lets examine a simple drawing that uses some different shapes that P5JS can draw:
 
-https://github.com/JoyfulDecay/learn-p5js/blob/d88592118aa961d56e4f8f6b89506980795a2fe8/sketches/simple-drawing.js#L1-L19
+https://github.com/JoyfulDecay/learn-p5js/blob/63b5d8a47d222322fee79e1f280b4bea585721d4/sketches/intro/simple-drawing.js#L1-L19
 
 
 ## Drawing with Color
 
 Drawing with color is done by setting the stroke or fill before calling the shape functions:
 
-https://github.com/JoyfulDecay/learn-p5js/blob/3dc90409d9f7787c0526f292a9c6acf4a069a0f9/sketches/color.js#L1-L32
+https://github.com/JoyfulDecay/learn-p5js/blob/63b5d8a47d222322fee79e1f280b4bea585721d4/sketches/intro/color.js#L1-L32
 
 **Note:** Now is a good time to get participants to create their own sketches using shape and colors.
 
@@ -87,14 +87,14 @@ In this scene we read the global variables `mouseX` and `mouseY` and store the v
 
 Here we define the variables using the `let` keyword.  The 'scope' of the variables is limited to the `draw` function.  Trying to use the variables outside there will cause an error, and the value of the variables will be lost each frame.
 
-https://github.com/JoyfulDecay/learn-p5js/blob/7b6e439f798f074624ac856049f5e9a3db6e3691/sketches/mouse_move.js#L1-L12
+https://github.com/JoyfulDecay/learn-p5js/blob/63b5d8a47d222322fee79e1f280b4bea585721d4/sketches/intro/mouse_move.js#L1-L12
 
 
 ## Drawing with the Mouse
 
 By moving the `background` call to the `setup` function we can allow our marks to be permanent.
 
-https://github.com/JoyfulDecay/learn-p5js/blob/7b6e439f798f074624ac856049f5e9a3db6e3691/sketches/mouse_draw.js#L1-L15
+https://github.com/JoyfulDecay/learn-p5js/blob/63b5d8a47d222322fee79e1f280b4bea585721d4/sketches/intro/mouse_draw.js#L1-L15
 
 Adding an `if` statement allows us to control when the pen draws.
 
@@ -111,7 +111,7 @@ The color is stored in a global variable so that its value will persist between 
 #### Definition of a Global Variable
 > Global variables are defined outside any function at the top of the file.  These variables can be referenced inside any function and the data persists between function calls.
 
-https://github.com/JoyfulDecay/learn-p5js/blob/39256b7a696333d09d56e7dee37ab5805d382f71/sketches/rainbow_pencil.js#L1-L24
+https://github.com/JoyfulDecay/learn-p5js/blob/63b5d8a47d222322fee79e1f280b4bea585721d4/sketches/intro/rainbow_pencil.js#L1-L24
 
 
 ## Random Spots on the Canvas
@@ -121,18 +121,18 @@ We keep track of how much data has passed using a global variable `t` and the bu
 #### Definition of a 'return' Statement
 > Exits the function immediately.  Code after this statement will not be executed.
 
-https://github.com/JoyfulDecay/learn-p5js/blob/d534db22bcf0babbc5ceab0534642a347e2d1449/sketches/random_dots.js#L1-L33
+https://github.com/JoyfulDecay/learn-p5js/blob/63b5d8a47d222322fee79e1f280b4bea585721d4/sketches/intro/random_dots.js#L1-L33
 
 
 ## Moving a Cirlce in a Random Direction
 
 In order to move a circle in a given direction we introduce the idea of 'velocity'. Each frame the circle's position is moved according to its velocity so that its position changes over time.
 
-https://github.com/JoyfulDecay/learn-p5js/blob/f259714f93693b7c56c017a3e8f94bbcc29b1629/sketches/circle_move_random.js#L1-L31
+https://github.com/JoyfulDecay/learn-p5js/blob/63b5d8a47d222322fee79e1f280b4bea585721d4/sketches/intro/circle_move_random.js#L1-L31
 
 We could reset the position of the circle by restarting the sketch repeatedly or we could automatically reset the ball when it leaves the screen.
 
-https://github.com/JoyfulDecay/learn-p5js/blob/f259714f93693b7c56c017a3e8f94bbcc29b1629/sketches/circle_move_random_reset.js#L1-L52
+https://github.com/JoyfulDecay/learn-p5js/blob/63b5d8a47d222322fee79e1f280b4bea585721d4/sketches/intro/circle_move_random_reset.js#L1-L52
 
 Here we have used a user defined function for the first time.  We need to reset the ball's position both when the sketch starts and when the ball goes off screen.  This action takes multiple lines of code so it's a good idea to group them together for future reference in a function.
 
