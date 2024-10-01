@@ -104,6 +104,13 @@ Adding an `if` statement allows us to control when the pen draws.
 
 ## Rainbow Pencil
 
+We can apply this rainbow effect to the pencil by changing the color it draws every frame.  Note that the `colorMode` is used because it's easier to change the 'hue' this way.
+
+The color is stored in a global variable so that its value will persist between frames.
+
+#### Definition of a Global Variable
+> Global variables are defined outside any function at the top of the file.  These variables can be referenced inside any function and the data persists between function calls.
+
 https://github.com/JoyfulDecay/learn-p5js/blob/39256b7a696333d09d56e7dee37ab5805d382f71/sketches/rainbow_pencil.js#L1-L24
 
 ## Random Spots on the Canvas
