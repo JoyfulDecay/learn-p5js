@@ -113,7 +113,15 @@ The color is stored in a global variable so that its value will persist between 
 
 https://github.com/JoyfulDecay/learn-p5js/blob/39256b7a696333d09d56e7dee37ab5805d382f71/sketches/rainbow_pencil.js#L1-L24
 
+
 ## Random Spots on the Canvas
+
+We keep track of how much data has passed using a global variable `t` and the built in variable `deltaTime`, which is the amount of time since the last frame was drawn.  If enough time has not passed we exit early using a `return` statement.
+
+#### Definition of a 'return' Statement
+> Exits the function immediately.  Code after this statement will not be executed.
+
+https://github.com/JoyfulDecay/learn-p5js/blob/d534db22bcf0babbc5ceab0534642a347e2d1449/sketches/random_dots.js#L1-L33
 
 # External Resources
 
