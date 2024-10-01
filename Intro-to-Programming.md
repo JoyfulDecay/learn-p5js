@@ -21,8 +21,6 @@ By default the editor has two functions defined.
 #### Definition of a Function
 > A function is a block of code that performs a specific task.  Functions can be referenced from other parts of the code.  There are 'built-in' functions such as `setup` and `draw` but we can also define our own.
 
-For now we will deal only with the `setup` and `draw` functions.
-
 
 ### Drawing a Circle
 We can create some custom behaviour by adding code inside the block surrounded by curly brackets:
