@@ -18,6 +18,7 @@ By default the editor has two functions defined.
 - The `setup` function is executed once when the sketch starts.
 - the `draw` function is called once per frame - 60 times per seconds.
 
+#### Definition of a Function
 > A function is a block of code that performs a specific task.  Functions can be referenced from other parts of the code.  There are 'built-in' functions such as `setup` and `draw` but we can also define our own.
 
 For now we will deal only with the `setup` and `draw` functions.
@@ -34,6 +35,7 @@ https://p5js.org/reference/p5/circle/
 
 Here we can see that the function accepts 3 parameters: `x`, `y` and `d`
 
+#### Definition of a Parameter
 > Parameters are used to provide data that functions can use to perform their task.  Parameters appear between the parentheses ()s in a set order as defined by the function.  For all P5JS built in functions the list of expected parameters can be found in the docs.
 
 In what ways does changing the values of the `circle` function's parameters affect the circle drawn on screen?
@@ -80,6 +82,7 @@ P5JS exposes the current state of the mouse with a number of variables and funct
 
 In this scene we read the global variables `mouseX` and `mouseY` and store the values in our own variables.
 
+#### Definition of a Variable
 > Variables allow us to store and manipulate data and reference the same value in multiple places in the code.
 
 Here we define the variables using the `let` keyword.  The 'scope' of the variables is limited to the `draw` function.  Trying to use the variables outside there will cause an error, and the value of the variables will be lost each frame.
@@ -95,6 +98,7 @@ https://github.com/JoyfulDecay/learn-p5js/blob/7b6e439f798f074624ac856049f5e9a3d
 
 Adding an `if` statement allows us to control when the pen draws.
 
+#### Definition of a Conditional Statement
 > Conditional statements control the flow of execution within the code.  They define blocks of code that are only executed if a condition is satisfied.
 
 
