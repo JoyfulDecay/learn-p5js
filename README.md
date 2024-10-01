@@ -123,6 +123,19 @@ We keep track of how much data has passed using a global variable `t` and the bu
 
 https://github.com/JoyfulDecay/learn-p5js/blob/d534db22bcf0babbc5ceab0534642a347e2d1449/sketches/random_dots.js#L1-L33
 
+
+## Moving a Cirlce in a Random Direction
+
+In order to move a circle in a given direction we introduce the idea of 'velocity'. Each frame the circle's position is moved according to its velocity so that its position changes over time.
+
+https://github.com/JoyfulDecay/learn-p5js/blob/f259714f93693b7c56c017a3e8f94bbcc29b1629/sketches/circle_move_random.js#L1-L31
+
+We could reset the position of the circle by restarting the sketch repeatedly or we could automatically reset the ball when it leaves the screen.
+
+https://github.com/JoyfulDecay/learn-p5js/blob/f259714f93693b7c56c017a3e8f94bbcc29b1629/sketches/circle_move_random_reset.js#L1-L52
+
+Here we have used a user defined function for the first time.  We need to reset the ball's position both when the sketch starts and when the ball goes off screen.  This action takes multiple lines of code so it's a good idea to group them together for future reference in a function.
+
 # External Resources
 
  - [Coding Train 'Code!' YouTube playlist](https://www.youtube.com/watch?v=HerCR8bw_GE&list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA)
