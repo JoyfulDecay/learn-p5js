@@ -1,4 +1,4 @@
-<F3>let w = 400;
+let w = 400;
 let h = 400;
 
 let random_bar_chart;
