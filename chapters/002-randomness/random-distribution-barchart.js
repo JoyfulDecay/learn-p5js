@@ -48,6 +48,7 @@ function setup() {
 function draw() {
   background(220);
 
-  random_bar_chart.add_value(random());
+  let val = random();
+  random_bar_chart.add_value(val);
   random_bar_chart.draw();
 }
