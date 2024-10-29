@@ -49,3 +49,7 @@ The algorithm works by creating an array called `weight_sum` that stores the val
 
 
 ## Weighted Choice from an array with Gaussian Distribution
+
+We can revisit the previous Gaussian distribution with multiple peaks idea and use a weighted choice to select the mean values - enabling the creation of a weighted Gaussian distribution with multiple peaks:
+
+https://github.com/JoyfulDecay/learn-p5js/blob/41dcf4e7d95572dcbc45fdc59a4318d76543bd91/chapters/002-randomness/weighted_from_array_gaussian.js#L1-L106
