@@ -1,6 +1,6 @@
 let w = 400;
 let h = 400;
-ilet w = 400;
+let w = 400;
 let h = 400;
 
 let random_bar_chart;
@@ -49,7 +49,7 @@ class BarChart {
 //n = num_peaks - 0 will error
 function multi_gaussian(n, deviation) {
   let mean = floor(random(n)) + 0.5;
-  return randomGaussian(mean, deviation)/n;
+  return randomGaussian(mean, deviation) / n;
 }
 
 function setup() {
@@ -61,11 +61,10 @@ function setup() {
 function draw() {
   background(220);
 
-  for(let i = 0;  i < vals_per_tick; i++) {
+  for (let i = 0; i < vals_per_tick; i++) {
     let val = multi_gaussian(num_peaks, rg_dev);
 
-    if (val >= 0 && val < 1.0)
-      gaussian_bar_chart.add_value(val);
+    if (val >= 0 && val < 1.0) gaussian_bar_chart.add_value(val);
   }
 
   gaussian_bar_chart.draw();
