@@ -1,10 +1,14 @@
 let w = 400;
 let h = 400;
+ilet w = 400;
+let h = 400;
 
 let random_bar_chart;
 
+let num_bars = 64;
+let vals_per_tick = 8;
 let num_peaks = 3;
-let rg_dev = 0.15;
+let rg_dev = 0.1;
 
 class BarChart {
   constructor(num_bars, fill_color) {
@@ -44,23 +48,25 @@ class BarChart {
 
 //n = num_peaks - 0 will error
 function multi_gaussian(n, deviation) {
-  let mean = floor(random(n)) + 1.5 / n;
-
-  return randomGaussian(mean, deviation) / n;
+  let mean = floor(random(n)) + 0.5;
+  return randomGaussian(mean, deviation)/n;
 }
 
 function setup() {
   rectMode(CORNERS);
   createCanvas(w, h);
-  gaussian_bar_chart = new BarChart(32, "rgb(242,148,69)");
+  gaussian_bar_chart = new BarChart(num_bars, "rgb(242,148,69)");
 }
 
 function draw() {
   background(220);
 
-  let val = multi_gaussian(num_peaks, rg_dev);
+  for(let i = 0;  i < vals_per_tick; i++) {
+    let val = multi_gaussian(num_peaks, rg_dev);
 
-  if (val >= 0 && val < 1.0) gaussian_bar_chart.add_value(val);
+    if (val >= 0 && val < 1.0)
+      gaussian_bar_chart.add_value(val);
+  }
 
   gaussian_bar_chart.draw();
 }
