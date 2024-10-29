@@ -1,4 +1,4 @@
-ilet w = 400;
+let w = 400;
 let h = 400;
 
 let random_bar_chart;
@@ -58,19 +58,19 @@ class GaussianWeightedChoice {
   select_value() {
     let weight_sum = [];
 
-    for(let i=0; i<this.values.length; i++) {
+    for (let i = 0; i < this.values.length; i++) {
       weight_sum[i] = this.weights[i];
 
-      if(i> 0) weight_sum[i] += weight_sum[i-1];
+      if (i > 0) weight_sum[i] += weight_sum[i - 1];
     }
 
-    let max_weight = weight_sum[weight_sum.length -1];
+    let max_weight = weight_sum[weight_sum.length - 1];
 
-    let choice = weight_sum.length-1;
+    let choice = weight_sum.length - 1;
     let r = random(max_weight);
 
-    for(let i=0; i<weight_sum.length-1; i++) {
-      if(r < weight_sum[i]) {
+    for (let i = 0; i < weight_sum.length - 1; i++) {
+      if (r < weight_sum[i]) {
         choice = i;
         break;
       }
