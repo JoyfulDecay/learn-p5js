@@ -13,10 +13,12 @@ The play and stop buttons can be used to run your sketches.  Pressing play will 
 
 There is also a menu on the top where you can access utilities such as saving and loading sketches - though you will need to log in for that.
 
+
 ## Coding a Sketch
 By default the editor has two functions defined.  
 - The `setup` function is executed once when the sketch starts.
 - the `draw` function is called once per frame - 60 times per seconds.
+
 
 #### Definition of a Function
 > A function is a block of code that performs a specific task.  Functions can be referenced from other parts of the code.  There are 'built-in' functions such as `setup` and `draw` but we can also define our own.
@@ -80,6 +82,7 @@ P5JS exposes the current state of the mouse with a number of variables and funct
 
 In this scene we read the global variables `mouseX` and `mouseY` and store the values in our own variables.
 
+
 #### Definition of a Variable
 > Variables allow us to store and manipulate data and reference the same value in multiple places in the code.
 
@@ -96,6 +99,7 @@ https://github.com/JoyfulDecay/learn-p5js/blob/63b5d8a47d222322fee79e1f280b4bea5
 
 Adding an `if` statement allows us to control when the pen draws.
 
+
 #### Definition of a Conditional Statement
 > Conditional statements control the flow of execution within the code.  They define blocks of code that are only executed if a condition is satisfied.
 
@@ -106,6 +110,7 @@ We can apply this rainbow effect to the pencil by changing the color it draws ev
 
 The color is stored in a global variable so that its value will persist between frames.
 
+
 #### Definition of a Global Variable
 > Global variables are defined outside any function at the top of the file.  These variables can be referenced inside any function and the data persists between function calls.
 
@@ -115,6 +120,7 @@ https://github.com/JoyfulDecay/learn-p5js/blob/63b5d8a47d222322fee79e1f280b4bea5
 ## Random Spots on the Canvas
 
 We keep track of how much data has passed using a global variable `t` and the built in variable `deltaTime`, which is the amount of time since the last frame was drawn.  If enough time has not passed we exit early using a `return` statement.
+
 
 #### Definition of a 'return' Statement
 > Exits the function immediately.  Code after this statement will not be executed.
@@ -133,6 +139,7 @@ We could reset the position of the circle by restarting the sketch repeatedly or
 https://github.com/JoyfulDecay/learn-p5js/blob/63b5d8a47d222322fee79e1f280b4bea585721d4/sketches/intro/circle_move_random_reset.js#L1-L52
 
 Here we have used a user defined function for the first time.  We need to reset the ball's position both when the sketch starts and when the ball goes off screen.  This action takes multiple lines of code so it's a good idea to group them together for future reference in a function.
+
 
 # External Resources
 
