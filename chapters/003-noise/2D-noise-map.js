@@ -2,7 +2,7 @@ let w = 800;
 let h = 800;
 
 let img;
-let img_scale = 10;
+let img_scale = 8;
 let img_w = w / img_scale;
 let img_h = h / img_scale;
 let img_buffer_size = img_w * img_h * 4;
@@ -34,7 +34,7 @@ function draw() {
 
   img.loadPixels();
 
-  let t = millis() * 0.005;
+  let t = frameCount * 0.01;
 
   for (let i = 0; i < img_buffer_size; i += 4) {
     //texture coordinates of current pixel
