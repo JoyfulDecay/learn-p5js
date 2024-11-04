@@ -15,3 +15,7 @@ Note:
 
 
 ## Noise Distribution
+
+Noise has a 'normal distribution' which means values in the middle of its range are more likely:
+
+https://github.com/JoyfulDecay/learn-p5js/blob/90f3dc5bab6c69d76bf11532dc6fa6f7e21ce708/chapters/003-noise/noise-distribution.js#L1-L63
