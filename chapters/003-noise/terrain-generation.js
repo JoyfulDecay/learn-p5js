@@ -8,8 +8,8 @@ let grid_count = 120;
 let scale_x = plane_w / grid_count;
 let scale_y = plane_h / grid_count;
 
-let noise_range = 10;
-let height_range = 60;
+let noise_range = 5;
+let height_range = 50;
 
 let camera_rot = 0;
 
