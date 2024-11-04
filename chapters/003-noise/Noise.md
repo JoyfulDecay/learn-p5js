@@ -19,3 +19,10 @@ Note:
 Noise has a 'normal distribution' which means values in the middle of its range are more likely:
 
 https://github.com/JoyfulDecay/learn-p5js/blob/90f3dc5bab6c69d76bf11532dc6fa6f7e21ce708/chapters/003-noise/noise-distribution.js#L1-L63
+
+
+## 2D Noise Map
+
+P5JS allows us to generate noise with 3 dimensions.  This can be visualised as a two dimensional texture with the third dimension being used as a 'time' variable to control animation.
+
+https://github.com/JoyfulDecay/learn-p5js/blob/d612062a786a772d6c3aeb651ee8a0341713e48d/chapters/003-noise/2D-noise-map.js#L1-L60
