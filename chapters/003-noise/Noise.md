@@ -33,3 +33,10 @@ https://github.com/JoyfulDecay/learn-p5js/blob/d612062a786a772d6c3aeb651ee8a0341
 A common technique is to use 2D noise values as a height value for terrain generation:
 
 https://github.com/JoyfulDecay/learn-p5js/blob/7fe25dcf89b8f1b970bb35736b040540e94fcb74/chapters/003-noise/terrain-generation.js#L1-L61
+
+
+## Wind Simulation
+
+Using a 2D noise field we can create a simulation of wind flowing while smoothly changing direction and speed:
+
+https://github.com/JoyfulDecay/learn-p5js/blob/54e97f5a078ed9eed0f266a8a94f4b83dc5e8b39/chapters/003-noise/noise_wind.js#L1-L84
