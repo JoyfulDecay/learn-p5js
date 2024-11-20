@@ -10,6 +10,15 @@ The `Ball` class in this example provides a template for how we can model Newton
 ihttps://github.com/JoyfulDecay/learn-p5js/blob/d5a3aeadc9f655f90d3c213adfdde39daa24272f/chapters/004-vectors/modelling_forces.js#L1-L52
 
 
+## Gravity
+
+For this example we model gravitational force that is pulling everything down uniformly.  It is important to say that we could code our gravity to go in any direction.
+
+In order to stop our balls from going through the floor we add a bouncing system.  
+
+First we calculate the distance between the ball and the floor.  If the ball is close to the floor we add a bouncing force and if it is far from the floor we fall.  This conditional is designed to stop the balls from 'vibrating' when they are close to the edge.
+
+
 ## Friction
 
 Friction is a good force to start with as it will stop the other forces from getting out of control and making everything move fast.
