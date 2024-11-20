@@ -7,14 +7,18 @@ class Ball {
   constructor(pos) {
     this.pos = pos;
     this.start_pos = pos;
-    this.acc = createVector(0, 0);
     this.vel = createVector(0, 0);
   }
 
-  update() {
-    this.vel.add(this.acc);
+  update(forces) {
+    let acc = createVector(0, 0);
+
+    for (let i = 0; i < forces.length; i++) {
+      acc.add(forces[i]);
+    }
+
+    this.vel.add(acc);
     this.pos.add(this.vel);
-    this.acc.mult(0);
   }
 
   draw() {
@@ -30,15 +34,20 @@ function setup() {
   createCanvas(w, h);
 
   for (let i = 0; i < num_balls; i++) {
-    let pos = createVector(w / 2, h / 2);
+    let x = random(w / 8, w - w / 8);
+    let y = random(-h / 3, h / 3) + h / 2;
+    let pos = createVector(x, y);
     let b = new Ball(pos);
     balls.push(b);
-
-    let rand_force = createVector(random(-1, 1), random(-1, 1));
-    rand_force.normalize();
-    rand_force.mult(random(1, 10));
-    b.add_force(rand_force);
   }
+}
+
+function forces(b) {
+  let forces = [];
+
+  let gravity = createVector(0, 1);
+
+  return [gravity];
 }
 
 function draw() {
@@ -46,7 +55,7 @@ function draw() {
 
   for (let i = 0; i < num_balls; i++) {
     let b = balls[i];
-    b.update();
+    b.update(forces(b));
     b.draw();
   }
 }
