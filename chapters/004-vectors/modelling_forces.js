@@ -21,7 +21,7 @@ class Ball {
     circle(this.pos.x, this.pos.y, 10);
   }
 
-  addForce(f) {
+  add_force(f) {
     this.acc.add(f);
   }
 }
@@ -37,7 +37,7 @@ function setup() {
     let rand_force = createVector(random(-1, 1), random(-1, 1));
     rand_force.normalize();
     rand_force.mult(random(1, 6));
-    b.addForce(rand_force);
+    b.add_force(rand_force);
   }
 }
 
