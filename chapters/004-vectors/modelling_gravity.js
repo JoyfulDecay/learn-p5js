@@ -26,10 +26,6 @@ class Ball {
   draw() {
     circle(this.pos.x, this.pos.y, this.radius * 2);
   }
-
-  add_force(f) {
-    this.acc.add(f);
-  }
 }
 
 function setup() {
