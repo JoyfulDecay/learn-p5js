@@ -19,3 +19,5 @@ Friction is calculated by copying the current velocity and multiplying it by `-1
 The friction vector is normalized, which maintains its angle but scales its magnitude to 1.  A normalized variable is known as a 'unit vector'.  We can scale this variable to control the magnitude without changing the direction.
 
 We use a simplified version of the friction formula to scale the friction vector and return it.
+
+In the code `c` is the coefficient of friction.  This value can be changed to simulate the properties of different surfaces such as ice.  We also define the `normal_force` to be 1.  The normal force is the force perpendicular to the direction of travel.  We can hardcode it as 1 for now and revisit it later if we wish to refine the simulation.
