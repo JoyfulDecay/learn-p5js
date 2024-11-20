@@ -21,3 +21,5 @@ The friction vector is normalized, which maintains its angle but scales its magn
 We use a simplified version of the friction formula to scale the friction vector and return it.
 
 In the code `c` is the coefficient of friction.  This value can be changed to simulate the properties of different surfaces such as ice.  We also define the `normal_force` to be 1.  The normal force is the force perpendicular to the direction of travel.  We can hardcode it as 1 for now and revisit it later if we wish to refine the simulation.
+
+https://github.com/JoyfulDecay/learn-p5js/blob/322616a526c2a28da474663e7c87c5dc8a97f241/chapters/004-vectors/modelling_friction.js#L1-L69
