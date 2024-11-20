@@ -30,7 +30,7 @@ function setup() {
   createCanvas(w, h);
 
   for (let i = 0; i < num_balls; i++) {
-    let pos = createVector(random(w), random(h));
+    let pos = createVector(w / 2, h / 2);
     let b = new Ball(pos);
     balls.push(b);
 
