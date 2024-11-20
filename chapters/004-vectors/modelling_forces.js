@@ -36,7 +36,7 @@ function setup() {
 
     let rand_force = createVector(random(-1, 1), random(-1, 1));
     rand_force.normalize();
-    rand_force.mult(random(1, 6));
+    rand_force.mult(random(1, 10));
     b.add_force(rand_force);
   }
 }
