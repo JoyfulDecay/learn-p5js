@@ -18,8 +18,7 @@ In order to stop our balls from going through the floor we add a bouncing system
 
 First we calculate the distance between the ball and the floor.  If the ball is close to the floor we add a bouncing force and if it is far from the floor we fall.  This conditional is designed to stop the balls from 'vibrating' when they are close to the edge.
 
-https://github.com/JoyfulDecay/learn-p5js/blob/aa57d64ff2fa3a6c6a8af3575189880b7b6b5f22/chapters/004-vectors/modelling_gravity.js#L1-L80
-
+https://github.com/JoyfulDecay/learn-p5js/blob/49981c72a763c92f5d22ef068906acbb9e3617a3/chapters/004-vectors/modelling_gravity.js#L1-L76
 
 ## Friction
 
