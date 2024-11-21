@@ -1,16 +1,22 @@
 let balls = [];
-let num_balls = 3;
+let num_balls = 1000;
+let active_balls;
 let w = 800;
 let h = 800;
-let spawn_radius = 300;
-let grav_str = 100;
+let spawn_radius = 375;
+let spawn_rand = 0.1;
+let grav_str = 7;
+let min_dist = 7;
 let trails;
+
+//let num_frames = -1; //no limit
+let num_frames = 60 * 60; //one minute
 
 class Ball {
   constructor(pos, h) {
     this.pos = pos;
     this.vel = createVector(0, 0);
-    this.radius = 12;
+    this.radius = 5;
     this.h = h;
     this.mass = 10;
   }
@@ -36,15 +42,21 @@ function setup() {
   trails = createGraphics(w, h);
   trails.clear();
 
+  let offset = createVector(spawn_radius, 0);
   for (let i = 0; i < num_balls; i++) {
     let pos = createVector(w / 2, h / 2);
-    pos.x += random(-spawn_radius, spawn_radius);
-    pos.y += random(-spawn_radius, spawn_radius);
+    offset.rotate((2 * PI) / num_balls);
+    pos.add(offset);
+
+    let rand_x = random(-spawn_rand, spawn_rand);
+    let rand_y = random(-spawn_rand, spawn_rand);
+    pos.add(createVector(rand_x, rand_y));
 
     let rand_hue = (360 / num_balls) * i;
     let b = new Ball(pos, rand_hue);
     balls.push(b);
   }
+  active_balls = num_balls;
 }
 
 function attraction(b1, b2_pos) {
@@ -53,7 +65,7 @@ function attraction(b1, b2_pos) {
 
   let dist = p5.Vector.dist(b1.pos, b2_pos);
 
-  dist = max(dist, b1.radius * 2);
+  dist = max(dist, min_dist);
 
   let mag = grav_str / (dist * dist);
 
@@ -82,13 +94,18 @@ function forces(ball_index, old_balls) {
 }
 
 function draw() {
+  if (num_frames != -1 && frameCount >= num_frames) {
+    noLoop();
+    return;
+  }
+
   background(0);
 
   image(trails, 0, 0);
 
   let old_balls = balls.map((b) => b.pos.copy());
 
-  for (let i = 0; i < num_balls; i++) {
+  for (let i = 0; i < active_balls; i++) {
     let b = balls[i];
 
     let x0 = b.pos.x;
@@ -101,4 +118,11 @@ function draw() {
     trails.stroke(b.h, 255, 255);
     trails.line(x0, y0, b.pos.x, b.pos.y);
   }
+}
+
+function mousePressed() {
+  if (mouseButton != LEFT) return;
+
+  if (active_balls > 0) active_balls = 0;
+  else active_balls = num_balls;
 }
