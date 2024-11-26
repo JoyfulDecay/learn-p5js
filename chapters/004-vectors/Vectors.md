@@ -7,7 +7,7 @@ Vectors provide a more succint way to model moving objects than using separate v
 
 The `Ball` class in this example provides a template for how we can model Newtonian physics with vectors.
 
-ihttps://github.com/JoyfulDecay/learn-p5js/blob/d5a3aeadc9f655f90d3c213adfdde39daa24272f/chapters/004-vectors/modelling_forces.js#L1-L52
+https://github.com/JoyfulDecay/learn-p5js/blob/d5a3aeadc9f655f90d3c213adfdde39daa24272f/chapters/004-vectors/modelling_forces.js#L1-L52
 
 
 ## Gravity
