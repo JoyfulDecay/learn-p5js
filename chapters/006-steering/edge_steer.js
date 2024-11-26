@@ -1,5 +1,5 @@
 let bodies = [];
-let num_bodies = 12;
+let num_bodies = 120;
 let w = 800;
 let h = 800;
 let spawn_radius = 100;
@@ -8,7 +8,7 @@ let grav_str = 100;
 let min_dist = 7;
 
 class Body {
-  constructor({ pos, vel = createVector(0, 0), radius = 5, h }) {
+  constructor({ pos, vel = createVector(0, 0), radius = 3, h }) {
     this.pos = pos;
     this.vel = vel;
     this.radius = radius;
@@ -79,7 +79,7 @@ function attraction(b1, b2) {
 }
 
 function friction(b) {
-  let c = 0.01;
+  let c = 0.1;
   let normal_force = 1;
 
   let friction_mag = c * normal_force;
@@ -92,12 +92,17 @@ function friction(b) {
 }
 
 function edge_repel(b) {
-  let f = b.pos.copy();
+  let f = createVector(0, 0);
+  let mag = 2;
 
-  let d = b.pos.magSq() / (w * w + h * h);
+  if (b.pos.x < -w / 2) f.add(createVector(1, 0));
+  if (b.pos.x > w / 2) f.add(createVector(-1, 0));
 
-  f.normalize();
-  f.mult(-d);
+  if (b.pos.y < -h / 2) f.add(createVector(0, 1));
+  if (b.pos.y > h / 2) f.add(createVector(0, -1));
+
+  f.mult(mag);
+
   return f;
 }
 
@@ -124,7 +129,7 @@ function draw() {
   //center sketch on middle
   translate(w / 2, h / 2);
 
-  background(255, 0.001);
+  if (frameCount != 1) background(0);
 
   let old_bodies = bodies;
   bodies = [];
