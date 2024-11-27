@@ -1,11 +1,12 @@
 let bodies = [];
-let num_bodies = 120;
+let num_bodies = 36;
 let w = 800;
 let h = 800;
-let spawn_radius = 100;
+let spawn_radius = 300;
 let spawn_rand = 0.1;
-let grav_str = 100;
 let min_dist = 7;
+
+let attract_str = 10;
 
 class Body {
   constructor({ pos, vel = createVector(0, 0), radius = 3, h }) {
@@ -51,6 +52,7 @@ function setup() {
     let pos = createVector(0, 0);
     offset.rotate((2 * PI) / num_bodies);
     pos.add(offset);
+    pos.mult(random(0, 1));
     pos.x += random(-spawn_rand, spawn_rand);
     pos.y += random(-spawn_rand, spawn_rand);
 
@@ -71,7 +73,7 @@ function attraction(b1, b2) {
 
   dist = max(dist, min_dist);
 
-  let mag = grav_str / (dist * dist);
+  let mag = attract_str / (dist * dist);
 
   f.normalize();
   f.mult(mag);
@@ -131,6 +133,7 @@ function draw() {
 
   if (frameCount != 1) background(0);
 
+  //copy old reference frame and create new one
   let old_bodies = bodies;
   bodies = [];
 
