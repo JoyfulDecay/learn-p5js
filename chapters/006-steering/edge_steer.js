@@ -1,12 +1,16 @@
 let bodies = [];
-let num_bodies = 36;
+let num_bodies = 200;
 let w = 800;
 let h = 800;
-let spawn_radius = 300;
+let spawn_radius = 200;
 let spawn_rand = 0.1;
 let min_dist = 7;
+let perception_radius = 100;
 
-let attract_str = 10;
+let steer_scale = 0.3;
+let sep_mag = 0.7;
+let coh_mag = 0.5;
+let ali_mag = 0.15;
 
 class Body {
   constructor({ pos, vel = createVector(0, 0), radius = 3, h }) {
@@ -63,25 +67,17 @@ function setup() {
     });
     bodies.push(b);
   }
-}
 
-function attraction(b1, b2) {
-  let f = b2.pos.copy();
-  f.sub(b1.pos);
-
-  let dist = p5.Vector.dist(b1.pos, b2.pos);
-
-  dist = max(dist, min_dist);
-
-  let mag = attract_str / (dist * dist);
-
-  f.normalize();
-  f.mult(mag);
-  return f;
+  sep_slider = createSlider(0, 1, sep_mag, 0.01);
+  sep_slider.position(200, h + 20);
+  coh_slider = createSlider(0, 1, coh_mag, 0.01);
+  coh_slider.position(200, h + 40);
+  ali_slider = createSlider(0, 1, ali_mag, 0.01);
+  ali_slider.position(200, h + 60);
 }
 
 function friction(b) {
-  let c = 0.1;
+  let c = 0.14;
   let normal_force = 1;
 
   let friction_mag = c * normal_force;
@@ -95,7 +91,7 @@ function friction(b) {
 
 function edge_repel(b) {
   let f = createVector(0, 0);
-  let mag = 2;
+  let mag = 1;
 
   if (b.pos.x < -w / 2) f.add(createVector(1, 0));
   if (b.pos.x > w / 2) f.add(createVector(-1, 0));
@@ -108,16 +104,50 @@ function edge_repel(b) {
   return f;
 }
 
+function separation(b_index, old_bodies) {
+  return createVector(0, 0);
+}
+
 function forces(b_index, old_bodies) {
   let forces = [];
   let b = old_bodies[b_index];
+
+  let local_flock_size = 0;
+  let local_average_pos = createVector(0, 0);
+  let local_average_vel = createVector(0, 0);
 
   for (let i = 0; i < old_bodies.length; i++) {
     if (i == b_index) continue;
 
     let b2 = old_bodies[i];
 
-    forces.push(attraction(b, b2));
+    let d = b.pos.dist(b2.pos);
+
+    if (d > perception_radius) continue;
+
+    local_average_pos.add(b2.pos);
+    local_average_vel.add(b2.vel);
+    local_flock_size++;
+  }
+
+  if (local_flock_size > 0) {
+    local_average_pos.div(local_flock_size);
+    local_average_vel.div(local_flock_size);
+
+    let sep = p5.Vector.sub(b.pos, local_average_pos);
+    sep.normalize();
+    sep.mult(sep_mag * steer_scale);
+    forces.push(sep);
+
+    let alignment = local_average_vel.copy();
+    alignment.normalize();
+    alignment.mult(ali_mag * steer_scale);
+    forces.push(alignment);
+
+    let cohesion = p5.Vector.mult(sep, -1);
+    cohesion.normalize();
+    cohesion.mult(coh_mag * steer_scale);
+    forces.push(cohesion);
   }
 
   forces.push(edge_repel(b));
@@ -127,7 +157,15 @@ function forces(b_index, old_bodies) {
   return forces;
 }
 
+function read_sliders() {
+  sep_mag = sep_slider.value();
+  coh_mag = coh_slider.value();
+  ali_mag = ali_slider.value();
+}
+
 function draw() {
+  read_sliders();
+
   //center sketch on middle
   translate(w / 2, h / 2);
 
@@ -144,3 +182,4 @@ function draw() {
     bodies.push(b);
   }
 }
+w;
