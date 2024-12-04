@@ -1,25 +1,31 @@
-let w = 4096;
-let h = 4096;
-
+let canvas_size = 800;
 let escape_mag = 2;
 let max_iter = 500;
-let c_min = -2;
-let c_max = 1.7;
+let c_range = 2;
 let c_offset_x = -0.3;
 let c_offset_y = 0;
+let last_render_x;
+let last_render_y;
 
 let render_layer;
-let render_size = 4096;
 
 let current_pixel = 0;
 let target_frame_time = 1000 / 60;
 
+let ui_y = 810;
+let render_button;
+let c_offset_x_input;
+let c_offset_y_input;
+let c_range_input;
+let max_iter_input;
+let canvas_size_input;
+
 let colours = [
-  [12, 0, 100],
-  [47, 100, 90],
-  [170, 30, 77],
-  [329, 20, 80],
-  [266, 100, 20],
+  [120, 10, 10],
+  [47, 100, 20],
+  [170, 70, 70],
+  [329, 80, 80],
+  [106, 5, 10],
 ];
 
 class ComplexNumber {
@@ -46,10 +52,70 @@ class ComplexNumber {
 }
 
 function setup() {
-  createCanvas(w, h);
-  render_layer = createGraphics(render_size, render_size);
   noSmooth();
   colorMode(HSB);
+  c_offset_x_input = createInput();
+  c_offset_x_input.position(20, ui_y);
+
+  c_offset_y_input = createInput();
+  c_offset_y_input.position(200, ui_y);
+
+  c_range_input = createInput();
+  c_range_input.position(380, ui_y);
+
+  max_iter_input = createInput();
+  max_iter_input.size(40, 16);
+  max_iter_input.position(560, ui_y);
+
+  canvas_size_input = createInput();
+  canvas_size_input.size(40, 16);
+  canvas_size_input.position(610, ui_y);
+
+  render_button = createButton("Render");
+  render_button.position(700, ui_y);
+  render_button.mousePressed(() => {
+    read_inputs();
+    start_render();
+  });
+
+  update_inputs();
+  start_render();
+}
+
+function start_render() {
+  createCanvas(canvas_size, canvas_size);
+  render_layer = createGraphics(canvas_size, canvas_size);
+  background(255);
+  current_pixel = 0;
+  last_render_x = c_offset_x;
+  last_render_y = c_offset_y;
+}
+
+function update_inputs() {
+  c_offset_x_input.value(c_offset_x);
+  c_offset_y_input.value(c_offset_y);
+  c_range_input.value(c_range);
+  max_iter_input.value(max_iter);
+  canvas_size_input.value(canvas_size);
+}
+
+function read_inputs() {
+  c_offset_x = parseFloat(c_offset_x_input.value());
+  c_offset_y = parseFloat(c_offset_y_input.value());
+  c_range = parseFloat(c_range_input.value());
+  max_iter = parseInt(max_iter_input.value());
+  canvas_size = parseInt(canvas_size_input.value());
+}
+
+function mouseClicked() {
+  if (mouseButton !== "left") return;
+
+  if (mouseX < 0 || mouseY < 0 || mouseX > width || mouseY > height) return;
+
+  c_offset_x = last_render_x + map(mouseX, 0, width, -c_range, c_range);
+  c_offset_y = last_render_y + map(mouseY, 0, height, -c_range, c_range);
+
+  update_inputs();
 }
 
 function find_escape(z, c) {
@@ -74,16 +140,19 @@ function escape_colour(n, c, z) {
 function draw() {
   let t0 = millis();
 
-  while (current_pixel < render_size * render_size) {
+  while (current_pixel < width * height) {
     if (millis() - t0 > target_frame_time) break;
 
-    let px = current_pixel % render_size;
-    let py = floor(current_pixel / render_size);
+    let px = current_pixel % width;
+    let py = floor(current_pixel / width);
 
     let z = new ComplexNumber(0, 0);
 
-    let c_a = map(px, 0, render_size, c_min, c_max) + c_offset_x;
-    let c_b = map(py, 0, render_size, c_min, c_max) + c_offset_y;
+    let c_a = map(px, 0, width, -c_range, c_range);
+    let c_b = map(py, 0, height, -c_range, c_range);
+
+    c_a += c_offset_x;
+    c_b += c_offset_y;
 
     let c = new ComplexNumber(c_a, c_b);
 
@@ -97,5 +166,5 @@ function draw() {
     current_pixel++;
   }
 
-  image(render_layer, 0, 0, w, h);
+  image(render_layer, 0, 0, width, height);
 }
