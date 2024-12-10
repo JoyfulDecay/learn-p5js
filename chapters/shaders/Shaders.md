@@ -18,4 +18,8 @@ https://github.com/JoyfulDecay/learn-p5js/blob/023da18855c13f7486858a75579b43129
 
 #### GPU Version
 
+The sketch for the GPU version can be found here:  https://editor.p5js.org/JoyfulDecay/sketches/cvLe2lRdj
+
+This sketch prints the time it took to render as well and for me that's a 1000x speed increase.
+
 https://p5js.org/tutorials/intro-to-shaders/
