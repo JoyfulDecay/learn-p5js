@@ -2,35 +2,39 @@ let w = 800;
 let h = 800;
 
 let render_layer;
-let render_size = 10;
+let render_size = 800;
 
 let current_pixel = 0;
-let target_frame_time = 1000 / 60;
 
 function setup() {
   createCanvas(w, h);
   render_layer = createGraphics(render_size, render_size);
+  noLoop();
   noSmooth();
 }
 
 function draw() {
   let t0 = millis();
 
-  while (current_pixel < render_size * render_size) {
-    if (millis() - t0 > target_frame_time) break;
+  let num_pixels = render_layer.width * render_layer.height;
 
-    let px = current_pixel % render_size;
-    let py = floor(current_pixel / render_size);
+  while (current_pixel < num_pixels) {
+    let px = current_pixel % render_layer.width;
+    let py = floor(current_pixel / render_layer.width);
 
-    let pr = map(px, 0, render_size, 0, 255);
-    let pg = map(py, 0, render_size, 0, 255);
+    let pr = map(px, 0, render_layer.width, 0, 255);
+    let pg = map(py, 0, render_layer.height, 0, 255);
     let pb = 0;
 
-    render_layer.stroke(pr, pg, pb, 255);
-    render_layer.point(px, py);
+    render_layer.fill(pr, pg, pb, 255);
+    render_layer.noStroke();
+    render_layer.rect(px, py, 1, 1);
 
     current_pixel++;
   }
+
+  let elapsed_time = millis() - t0;
+  console.log(`Render took ${elapsed_time} millis.`);
 
   image(render_layer, 0, 0, w, h);
 }
