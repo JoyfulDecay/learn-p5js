@@ -14,7 +14,7 @@ This sketch produces a rectangle that gets more red as the horizontal position i
 
 The CPU version will render the image and print to the console how long it took.
 
-[https://github.com/JoyfulDecay/learn-p5js/blob/38385db0e37d58887b9dcd08223c0a33d5cb4c6f/chapters/shaders/UV_CPU.js](https://github.com/JoyfulDecay/learn-p5js/blob/023da18855c13f7486858a75579b431292ec61f1/chapters/shaders/UV_CPU.js#L1-L40)
+https://github.com/JoyfulDecay/learn-p5js/blob/023da18855c13f7486858a75579b431292ec61f1/chapters/shaders/UV_CPU.js#L1-L40
 
 #### GPU Version
 
