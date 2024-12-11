@@ -18,6 +18,31 @@ Executed once for every vertex in the scene.  Can pass data to the fragment shad
 
 Executed once for every pixel in the texture.  Outputs a colour.
 
+## Passing Data from Vertex to Fragment Shader
+
+The vertex shader can pass the current position in world space to the fragment shader.  First it must declare an attribute so that this data will be passed to the vertex shader:
+
+`attribute vec2 aTexCoord;`
+
+Then we define the variable that will be passed to the fragment shader:
+
+`varying vec2 vTexCoord;`
+
+During the vertex shader's `main` function we copy the data from the input attribute to the output variable:
+
+`vTexCoord = aTexCoord;`
+
+Now in the fragment shader we can define the input variable:
+
+`varying vec2 vTexCoord;`
+
+And use it in our `main` function:
+
+```
+  float r = vTexCoord.s;
+  float g = vTexCoord.t;
+```
+
 ## Comparison of CPU and GPU Code
 
 ### Simple UV Shader
