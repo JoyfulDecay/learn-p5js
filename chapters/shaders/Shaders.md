@@ -4,6 +4,12 @@ Shaders are programs that run on the graphics card as opposed to the CPU.
 
 Graphics cards have the benefit that they can run code in parallel.  When rendering a rectangular grid of pixels the CPU will draw one pixel at a time while the graphics card will process every pixel at the same time.  This can result in faster completion of certain workloads.
 
+Shaders are part of a 'graphics pipeline'.  For our purposes we can think of the following steps:
+1. Define the geometry of the scene in Javascript.
+2. Process the geometry with a desired shader in Javascript.
+3. First the 'vertex' shader is run on every vertex in the geometry.
+4. Second the fragment shader is run on every visible pixel of the geometry.
+
 ## 2D Shader Setup
 
 To set up a sketch that uses a fragment shader to output 2D graphics requires 3 files.
