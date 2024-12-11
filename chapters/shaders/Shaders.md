@@ -67,4 +67,8 @@ The sketch for the GPU version can be found here:  https://editor.p5js.org/Joyfu
 
 This sketch prints the time it took to render as well and for me that's a 1000x speed increase.
 
+
+## Further Reading
+
+
 https://p5js.org/tutorials/intro-to-shaders/
