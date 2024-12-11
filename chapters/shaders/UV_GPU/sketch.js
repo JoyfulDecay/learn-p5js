@@ -9,9 +9,16 @@ function preload() {
 
 function setup() {
   createCanvas(w, h, WEBGL);
+  noLoop();
 }
 
 function draw() {
+  let t0 = millis();
+
   shader(uv_shader);
+
+  let elapsed_time = millis() - t0;
+  console.log(`Render took ${elapsed_time} millis.`);
+
   plane(w, h);
 }
