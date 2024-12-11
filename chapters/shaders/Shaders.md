@@ -4,6 +4,20 @@ Shaders are programs that run on the graphics card as opposed to the CPU.
 
 Graphics cards have the benefit that they can run code in parallel.  When rendering a rectangular grid of pixels the CPU will draw one pixel at a time while the graphics card will process every pixel at the same time.  This can result in faster completion of certain workloads.
 
+## 2D Shader Setup
+
+To set up a sketch that uses a fragment shader to output 2D graphics requires 3 files.
+
+### sketch.js
+
+### Vertex Shader
+
+Executed once for every vertex in the scene.  Can pass data to the fragment shader.
+
+### Fragment Shader
+
+Executed once for every pixel in the texture.  Outputs a colour.
+
 ## Comparison of CPU and GPU Code
 
 ### Simple UV Shader
