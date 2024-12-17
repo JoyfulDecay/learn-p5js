@@ -49,6 +49,18 @@ And use it in our `main` function:
   float g = vTexCoord.t;
 ```
 
+## Passing Data from the Sketch to the Shader
+
+Uniforms are used to send data from `sketch.js` to the shader.  The value passed will be available when computing all pixels and cannot be modified.
+
+This sketch shows how to send a colour from `sketch.js` to the fragment shader:
+
+https://github.com/JoyfulDecay/learn-p5js/blob/17587fff2e0f75d9717f7c3b7a25f14678d5e55d/chapters/shaders/uniforms/uniforms.js#L1-L25
+
+The fragment shader defines the uniform `uni_color` to reference the data:
+
+https://github.com/JoyfulDecay/learn-p5js/blob/17587fff2e0f75d9717f7c3b7a25f14678d5e55d/chapters/shaders/uniforms/GPU_Uniforms.frag#L1-L10
+
 ## Comparison of CPU and GPU Code
 
 ### Simple UV Shader
