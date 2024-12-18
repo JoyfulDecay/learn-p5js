@@ -1,4 +1,5 @@
 precision highp float;
+precision highp int;
 
 varying vec2 vTexCoord;
 
@@ -7,13 +8,14 @@ struct ComplexNumber {
   float b;
 };
 
-const int num_colors = 3;
-uniform float colors[9];
+uniform sampler2D ramp;
 
+uniform int max_iter;
 uniform float c_range;
+uniform float c_offset_x;
+uniform float c_offset_y;
 
 float escape = 2.0;
-int max_iter = 200;
 
 float mag(ComplexNumber i) {
   return sqrt(i.a*i.a + i.b*i.b);
@@ -35,35 +37,30 @@ float map(float value, float min1, float max1, float min2, float max2) {
 }
 
 vec4 escape_color(ComplexNumber Z, int n) {
-  vec3 m_colors[3];
-  m_colors[0] = vec3(colors[0], colors[1], colors[2]);
-  m_colors[1] = vec3(colors[3], colors[4], colors[5]);
-  m_colors[2] = vec3(colors[6], colors[7], colors[8]);
+
   
   float mu = float(max_iter) - float(n) -
     log(log(mag(Z)))/log(2.0);
   
   float c_norm = map(mu, 
     0.0, float(max_iter), 
-    0.0, float(num_colors-1));
-  
-  vec4 c0 = vec4(m_colors[0].xyz, 1.0);
-  vec4 c1 = vec4(m_colors[1].xyz, 1.0);
-  
-  return mix(c0,c1, mod(c_norm,1.0));
-  //return mix(vec4(1.0,0.0,0.0,1.0),vec4(0.0,1.0,0.0,1.0), mod(c_norm,1.0));
+    0.0, 1.0);
+
+  return texture2D(ramp, vec2(c_norm, 0.0));
 }
 
 vec4 mandelbrot() {
   
   ComplexNumber Z = ComplexNumber(0.0, 0.0);
   
-  float c_a = map(vTexCoord.x, 0.0, 1.0, -c_range, c_range);
-  float c_b = map(vTexCoord.y, 0.0, 1.0, -c_range, c_range);
+  float c_a = map(vTexCoord.x, 0.0, 1.0, 
+    -c_range+c_offset_x, c_range+c_offset_x);
+  float c_b = map(vTexCoord.y, 0.0, 1.0, 
+    -c_range+c_offset_y, c_range+c_offset_y);
   
   ComplexNumber C = ComplexNumber(c_a, c_b);
   
-  for(int i=0; i<200; i++) {
+  for(int i=0; i<999999; i++) {
     // Z -> Z^2 + C
     Z = pow2(Z);
     Z = add(Z,C);
@@ -71,6 +68,8 @@ vec4 mandelbrot() {
     // if(mag(Z) > 2) -> escape
     if(mag(Z) > 2.0)
       return escape_color(Z, i);
+    
+    if((i+1) > max_iter) break;
   }
   
   return vec4(0.0,0.0,0.0,1.0);
